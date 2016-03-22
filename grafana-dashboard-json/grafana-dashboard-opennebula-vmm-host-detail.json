@@ -1,0 +1,576 @@
+{
+  "id": 46,
+  "title": "OpenNebula - VMM Host Details",
+  "originalTitle": "OpenNebula - VMM Host Details",
+  "tags": [],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": false,
+  "sharedCrosshair": false,
+  "rows": [
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "cacheTimeout": null,
+          "colorBackground": true,
+          "colorValue": false,
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "format": "percent",
+          "id": 3,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(0, 0, 0, 0)",
+            "full": true,
+            "lineColor": "rgb(10, 10, 11)",
+            "show": true
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "target": "asPercent(sumSeries(opennebula-performance.zones.$Zone.clusters.$Cluster.hosts.$Host.used_cpu),sumSeries(opennebula-performance.zones.$Zone.clusters.$Cluster.hosts.$Host.max_cpu))",
+              "textEditor": true
+            }
+          ],
+          "thresholds": "0,50,75",
+          "title": "Used CPU",
+          "type": "singlestat",
+          "valueFontSize": "200%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 9,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "alias(scale(opennebula-performance.zones.$Zone.clusters.$Cluster.hosts.$Host.max_cpu, 0.01), 'Host CPU Cores')",
+              "textEditor": true
+            },
+            {
+              "refId": "C",
+              "target": "alias(scale(opennebula-performance.zones.$Zone.clusters.$Cluster.hosts.$Host.cpu_usage, 0.01), 'Host Allocated CPU')",
+              "textEditor": true
+            },
+            {
+              "refId": "B",
+              "target": "alias(scale(opennebula-performance.zones.$Zone.clusters.$Cluster.hosts.$Host.used_cpu, 0.01), 'Host Used CPU')",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "VMM Host CPU Detail",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "Tactical Overview"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "cacheTimeout": null,
+          "colorBackground": true,
+          "colorValue": false,
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "format": "percent",
+          "id": 2,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(0, 0, 0, 0)",
+            "full": true,
+            "lineColor": "rgb(10, 10, 11)",
+            "show": true
+          },
+          "targets": [
+            {
+              "hide": false,
+              "refId": "A",
+              "target": "asPercent(sumSeries(opennebula-performance.zones.$Zone.clusters.$Cluster.hosts.$Host.used_mem),sumSeries(opennebula-performance.zones.$Zone.clusters.$Cluster.hosts.$Host.max_mem))",
+              "textEditor": true
+            }
+          ],
+          "thresholds": "0,60,75",
+          "title": "Used RAM",
+          "type": "singlestat",
+          "valueFontSize": "200%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 10,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "alias(opennebula-performance.zones.$Zone.clusters.$Cluster.hosts.$Host.max_mem, 'Host RAM')",
+              "textEditor": true
+            },
+            {
+              "refId": "C",
+              "target": "alias(opennebula-performance.zones.$Zone.clusters.$Cluster.hosts.$Host.mem_usage, 'Host Allocated RAM')",
+              "textEditor": true
+            },
+            {
+              "refId": "B",
+              "target": "alias(opennebula-performance.zones.$Zone.clusters.$Cluster.hosts.$Host.used_mem, 'Host Used RAM')",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "VMM Host RAM Detail",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "kbytes",
+            "short"
+          ]
+        }
+      ],
+      "title": "Host Details"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "cacheTimeout": null,
+          "colorBackground": true,
+          "colorValue": false,
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "format": "none",
+          "id": 1,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0)",
+            "full": true,
+            "lineColor": "rgb(0, 0, 0)",
+            "show": true
+          },
+          "targets": [
+            {
+              "refId": "A",
+              "target": "sumSeries(opennebula-performance.zones.$Zone.clusters.$Cluster.hosts.$Host.rvms)",
+              "textEditor": true
+            }
+          ],
+          "thresholds": "0,30,50",
+          "title": "Running VMs",
+          "type": "singlestat",
+          "valueFontSize": "200%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 13,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "alias(opennebula-performance.zones.$Zone.clusters.$Cluster.hosts.$Host.rvms, 'Running VMs')",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "VMM Host running VMs",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "none",
+            "short"
+          ]
+        }
+      ],
+      "title": "OpenNebula Ressources (Available vs. Allocated vs. Used)"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [],
+      "title": "New row"
+    }
+  ],
+  "time": {
+    "from": "2016-03-15T13:40:36.471Z",
+    "to": "2016-03-16T11:36:30.965Z"
+  },
+  "timepicker": {
+    "now": true,
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "templating": {
+    "list": [
+      {
+        "allFormat": "glob",
+        "current": {
+          "tags": [],
+          "text": "Immenstaad",
+          "value": "Immenstaad"
+        },
+        "datasource": null,
+        "includeAll": true,
+        "multi": false,
+        "multiFormat": "glob",
+        "name": "Zone",
+        "options": [
+          {
+            "selected": false,
+            "text": "All",
+            "value": "{Friedrichshafen,Immenstaad}"
+          },
+          {
+            "selected": false,
+            "text": "Friedrichshafen",
+            "value": "Friedrichshafen"
+          },
+          {
+            "selected": true,
+            "text": "Immenstaad",
+            "value": "Immenstaad"
+          }
+        ],
+        "query": "opennebula-performance.zones.*",
+        "refresh": false,
+        "type": "query"
+      },
+      {
+        "allFormat": "glob",
+        "current": {
+          "text": "All",
+          "value": "{KMV001-IMS-LZI,KVM000-IMS-LZI}"
+        },
+        "datasource": null,
+        "includeAll": true,
+        "multi": false,
+        "multiFormat": "glob",
+        "name": "Cluster",
+        "options": [
+          {
+            "selected": true,
+            "text": "All",
+            "value": "{KMV001-IMS-LZI,KVM000-IMS-LZI}"
+          },
+          {
+            "selected": false,
+            "text": "KMV001-IMS-LZI",
+            "value": "KMV001-IMS-LZI"
+          },
+          {
+            "selected": false,
+            "text": "KVM000-IMS-LZI",
+            "value": "KVM000-IMS-LZI"
+          }
+        ],
+        "query": "opennebula-performance.zones.$Zone.clusters.*",
+        "refresh": false,
+        "type": "query"
+      },
+      {
+        "allFormat": "glob",
+        "current": {
+          "text": "kvm000_iaas_srv_lzi_domain_tld",
+          "value": "kvm000_iaas_srv_lzi_domain_tld"
+        },
+        "datasource": null,
+        "includeAll": false,
+        "multi": false,
+        "multiFormat": "glob",
+        "name": "Host",
+        "options": [
+          {
+            "selected": true,
+            "text": "kvm000_iaas_srv_lzi_domain_tld",
+            "value": "kvm000_iaas_srv_lzi_domain_tld"
+          },
+          {
+            "selected": false,
+            "text": "kvm001_iaas_srv_lzi_domain_tld",
+            "value": "kvm001_iaas_srv_lzi_domain_tld"
+          },
+          {
+            "selected": false,
+            "text": "kvm002_iaas_srv_lzi_domain_tld",
+            "value": "kvm002_iaas_srv_lzi_domain_tld"
+          },
+          {
+            "selected": false,
+            "text": "kvm003_iaas_srv_lzi_domain_tld",
+            "value": "kvm003_iaas_srv_lzi_domain_tld"
+          },
+          {
+            "selected": false,
+            "text": "kvm004_iaas_srv_lzi_domain_tld",
+            "value": "kvm004_iaas_srv_lzi_domain_tld"
+          },
+          {
+            "selected": false,
+            "text": "kvm005_iaas_srv_lzi_domain_tld",
+            "value": "kvm005_iaas_srv_lzi_domain_tld"
+          },
+          {
+            "selected": false,
+            "text": "kvm006_iaas_srv_lzi_domain_tld",
+            "value": "kvm006_iaas_srv_lzi_domain_tld"
+          },
+          {
+            "selected": false,
+            "text": "kvm007_iaas_srv_lzi_domain_tld",
+            "value": "kvm007_iaas_srv_lzi_domain_tld"
+          }
+        ],
+        "query": "opennebula-performance.zones.$Zone.clusters.$Cluster.hosts.*",
+        "refresh": false,
+        "type": "query"
+      }
+    ]
+  },
+  "annotations": {
+    "list": []
+  },
+  "refresh": false,
+  "schemaVersion": 8,
+  "version": 16,
+  "links": []
+}
