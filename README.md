@@ -1,6 +1,9 @@
 one-graphite
 ============
 
+
+![Alt text](one-graphite/screenshots/1.png)
+
 ## CronJob to gather metrics out of OpenNebula and send them to Graphite
 
 This script is a simple tool to gather some useful informations  
