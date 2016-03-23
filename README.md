@@ -2,7 +2,8 @@ one-graphite
 ============
 
 
-![OpenNebula-Grafana-Dashboard](https://github.com/TeleData/one-graphite/blob/master/grafana-dashboard-json/grafana-dashboard-opennebula-overview.json)
+![OpenNebula-Grafana-Dashboard](https://raw.githubusercontent.com/TeleData/one-graphite/master/screenshots/1.png)
+
 
 ## CronJob to gather metrics out of OpenNebula and send them to Graphite
 
