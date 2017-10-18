@@ -4,7 +4,7 @@
  # one-graphite
  #
  # @author      Sebastian Mangelkramer
- #              2016 TeleData GmbH
+ #              2017
  #
  # Name:        one-graphite
  # Description: Parse OpenNebula XML to generate graphite metrics
@@ -106,4 +106,35 @@ onegroup_performance.xpath('//GROUP').each do |group_element|
 
         end
     end
+end
+
+#
+# VM Performance Data / onevm performance
+#
+onevm_performance = Nokogiri::XML.parse(`onevm list -x`)
+onevm_performance.xpath('//VM').each do |vm_element|
+
+	vm_id 		= vm_element.xpath('ID').text
+	vm_diskrdiops 	= vm_element.xpath('MONITORING/DISKRDIOPS').text
+	vm_diskrdbytes 	= vm_element.xpath('MONITORING/DISKRDBYTES').text
+	vm_diskwriops 	= vm_element.xpath('MONITORING/DISKWRIOPS').text
+	vm_diskwrbytes 	= vm_element.xpath('MONITORING/DISKWRBYTES').text
+	vm_cpu 		= vm_element.xpath('MONITORING/CPU').text
+	vm_netrx 	= vm_element.xpath('MONITORING/NETRX').text
+	vm_nettx 	= vm_element.xpath('MONITORING/NETTX').text
+
+	# Debug
+	puts "VM: #{vm_id} CPU: #{vm_cpu}  NET-TX: #{vm_nettx} NET-RX: #{vm_netrx} RD-IOPS: #{vm_diskrdiops} RW-IOPS: #{vm_diskwriops}"
+
+	# send out metrics to graphite
+	g.send_metrics({
+		"#{prefix}.zones.#{zone}.vms.#{vm_id}.monitoring.vm_diskrdiops" => vm_diskrdiops,
+		"#{prefix}.zones.#{zone}.vms.#{vm_id}.monitoring.vm_diskwriops" => vm_diskwriops,
+		"#{prefix}.zones.#{zone}.vms.#{vm_id}.monitoring.vm_diskwrbytes" => vm_diskwrbytes,
+		"#{prefix}.zones.#{zone}.vms.#{vm_id}.monitoring.vm_diskrdbytes" => vm_diskrdbytes,
+		"#{prefix}.zones.#{zone}.vms.#{vm_id}.monitoring.vm_netrx" => vm_netrx,
+		"#{prefix}.zones.#{zone}.vms.#{vm_id}.monitoring.vm_nettx" => vm_nettx,
+		"#{prefix}.zones.#{zone}.vms.#{vm_id}.monitoring.vm_cpu" => vm_cpu
+	})
+
 end
